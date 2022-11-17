@@ -7,8 +7,8 @@ CBZ 		X9, 2
 B 		3
 ADD 		X9, X10, X11
 ADD 		X9, X10, X11
-ADDI  	X9, X9, 1
-ADD   	X21, X10, X9
+ADDI  	  X9, X9, 1
+ADD   	  X21, X10, X9
 LSL		X9, 2
 LSR		X9, 2
 
