@@ -1,0 +1,147 @@
+/h/dnguye22/lab2/dmem.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /h/dnguye22/lab2/dmem.vhd
+QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity DMEM
+-- Compiling architecture behavioral of DMEM
+
+} {} {}} /h/dnguye22/lab2/fulladder.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /h/dnguye22/lab2/fulladder.vhd
+QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity fulladder
+-- Compiling architecture structural of fulladder
+
+} {} {}} /h/dnguye22/lab2/tb_alu.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /h/dnguye22/lab2/tb_alu.vhd
+QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity tb_alu
+-- Compiling architecture behavioral of tb_alu
+
+} {} {}} /h/dnguye22/lab2/registers.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /h/dnguye22/lab2/registers.vhd
+QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity registers
+-- Compiling architecture behavioral of registers
+
+} {} {}} /h/dnguye22/lab2/tb_alucontrol.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /h/dnguye22/lab2/tb_alucontrol.vhd
+QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity tb_alucontrol
+-- Compiling architecture behavioral of tb_alucontrol
+
+} {} {}} /h/dnguye22/lab2/tb_fulladder.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /h/dnguye22/lab2/tb_fulladder.vhd
+QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity tb_fulladder
+-- Compiling architecture behavioral of tb_fulladder
+
+} {} {}} /h/dnguye22/lab2/add.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /h/dnguye22/lab2/add.vhd
+QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity ADD
+-- Compiling architecture structural of add
+
+} {} {}} /h/dnguye22/lab2/orgate.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /h/dnguye22/lab2/orgate.vhd
+QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity orgate
+-- Compiling architecture behavioral of orgate
+
+} {} {}} /h/dnguye22/lab2/alucontrol.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /h/dnguye22/lab2/alucontrol.vhd
+QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity ALUControl
+-- Compiling architecture behavioral of ALUcontrol
+
+} {} {}} /h/dnguye22/lab2/halfadder.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /h/dnguye22/lab2/halfadder.vhd
+QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity halfadder
+-- Compiling architecture behavioral of halfadder
+
+} {} {}} /h/dnguye22/lab2/tb_imem.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /h/dnguye22/lab2/tb_imem.vhd
+QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity tb_imem
+-- Compiling architecture behavioral of tb_imem
+
+} {} {}} /h/dnguye22/lab2/tb_registers.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /h/dnguye22/lab2/tb_registers.vhd
+QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity tb_registers
+-- Compiling architecture behavioral of tb_registers
+
+} {} {}} /h/dnguye22/lab2/tb_add.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /h/dnguye22/lab2/tb_add.vhd
+QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity tb_add
+-- Compiling architecture behavioral of tb_add
+
+} {} {}} /h/dnguye22/lab2/imem.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /h/dnguye22/lab2/imem.vhd
+QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity IMEM
+-- Compiling architecture behavioral of IMEM
+
+} {} {}} /h/dnguye22/lab2/tb_dmem.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /h/dnguye22/lab2/tb_dmem.vhd
+QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity tb_dmem
+-- Compiling architecture behavioral of tb_dmem
+
+} {} {}} /h/dnguye22/lab2/cpucontrol.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /h/dnguye22/lab2/cpucontrol.vhd
+QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity CPUControl
+-- Compiling architecture behavioral of CPUControl
+
+} {} {}} /h/dnguye22/lab2/alu.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /h/dnguye22/lab2/alu.vhd
+QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity ALU
+-- Compiling architecture behavioral of ALU
+
+} {} {}}

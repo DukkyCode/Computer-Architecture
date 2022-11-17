@@ -1,0 +1,59 @@
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.numeric_std.all;
+
+entity tb_alucontrol is
+    --Declare entity
+end entity;
+
+architecture behavioral of tb_alucontrol is
+    --Declare components
+    component ALUcontrol is
+        port(
+            ALUOp           : in  STD_LOGIC_VECTOR(1 downto 0);
+            Opcode          : in  STD_LOGIC_VECTOR(10 downto 0);
+            Operation       : out STD_LOGIC_VECTOR(3 downto 0)            
+        );
+    end component;
+
+    --Initialize signals
+    signal tb_aluop         : STD_LOGIC_VECTOR(1 downto 0);
+    signal tb_opcode        : STD_LOGIC_VECTOR(10 downto 0);
+    signal tb_operation     : STD_LOGIC_VECTOR(3 downto 0);
+
+    begin
+        uut : ALUControl port map(ALUop => tb_aluop, Opcode => tb_opcode, Operation => tb_operation);   
+
+        stimulus: process
+        begin
+            --add LOAD/STORE scenario
+            tb_aluop        <= "00";
+            tb_opcode       <= "11111111111";
+            wait for 100 ns;
+            
+            --pass input scenario
+            tb_aluop        <= "01";
+            tb_opcode       <= "10101010000";
+            wait for 100 ns;
+            
+            --Don't care scenario
+            tb_aluop        <= "11";
+            tb_opcode       <= "10101011111";
+            wait for 100 ns;
+            
+            --Opcode scenario            
+            tb_aluop        <= "10";
+            
+            tb_opcode       <= "10001011000"; --add
+            wait for 100 ns;
+            
+            tb_opcode       <= "11001011000"; --subtract
+            wait for 100 ns;
+
+            tb_opcode       <= "10001010000"; --AND
+            wait for 100 ns;
+
+            tb_opcode       <= "10101010000"; --OR
+            wait for 100 ns;            
+        end process;
+end behavioral;

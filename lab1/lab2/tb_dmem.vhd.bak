@@ -1,0 +1,59 @@
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.numeric_std.all;
+
+entity tb_dmem is
+    --Declare entity
+end entity;
+
+architecture behavioral of tb_dmem is
+    component dmem is 
+        port(
+            WriteData          : in  STD_LOGIC_VECTOR(63 downto 0); -- Input data
+            Address            : in  STD_LOGIC_VECTOR(63 downto 0); -- Read/Write address
+            MemRead            : in  STD_LOGIC; -- Indicates a read operation
+            MemWrite           : in  STD_LOGIC; -- Indicates a write operation
+            Clock              : in  STD_LOGIC; -- Writes are triggered by a rising edge
+            ReadData           : out STD_LOGIC_VECTOR(63 downto 0); -- Output data
+            --Probe ports used for testing
+            DEBUG_MEM_CONTENTS : out STD_LOGIC_VECTOR(64*4 - 1 downto 0)
+        );
+    end component;
+    
+    signal tb_WriteData          : STD_LOGIC_VECTOR(63 downto 0); -- Input data
+    signal tb_Address            : STD_LOGIC_VECTOR(63 downto 0); -- Read/Write address
+    signal tb_MemRead            : STD_LOGIC:= '0'; -- Indicates a read operation
+    signal tb_MemWrite           : STD_LOGIC:= '0'; -- Indicates a write operation
+    signal tb_Clock              : STD_LOGIC := '1'; -- Writes are triggered by a rising edge
+    signal tb_ReadData           : STD_LOGIC_VECTOR(63 downto 0); -- Output data
+    --Probe ports used for testing
+    signal tb_DEBUG_MEM_CONTENTS : STD_LOGIC_VECTOR(64*4 - 1 downto 0);
+    constant clk_period          : time := 50 ns;
+
+begin
+    uut: dmem port map(WriteData => tb_WriteData ,Address => tb_Address ,MemRead => tb_MemRead,MemWrite => tb_MemWrite, Clock => tb_Clock, ReadData => tb_ReadData);
+    
+    --Clock Cycle
+    clock_cycle :process
+    begin
+        tb_Clock <= '0';
+        wait for clk_period/2;
+        tb_Clock <= '1';
+        wait for clk_period/2;
+    end process;
+
+    --Testing check // One cycle of writing and reading
+    stimlus: process
+    begin
+	tb_MemRead      <= '0';
+        tb_MemWrite     <= '1';
+        tb_WriteData    <= X"000000000000FFFF";
+        tb_Address      <= X"0000000000000008";
+        wait for 100 ns;
+
+        tb_MemRead      <= '1';
+        tb_MemWrite     <= '0';
+        tb_Address      <= X"0000000000000000";
+        wait for 100 ns;
+    end process;
+end behavioral;

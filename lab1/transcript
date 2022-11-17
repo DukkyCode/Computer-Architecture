@@ -1,0 +1,39 @@
+# ** Warning: License feature 'msimviewer' will expire in 13 days.
+# Loading project lab1
+# Compile of and2.vhd was successful.
+# Compile of mux64.vhd was successful.
+# Compile of mux5.vhd was successful.
+# Compile of pc.vhd was successful.
+# Compile of signextend.vhd was successful.
+# Compile of shiftleft2.vhd was successful.
+# Compile of tb_and2.vhd was successful.
+# Compile of tb_mux5.vhd was successful.
+# Compile of tb_mux64.vhd was successful.
+# Compile of tb_pc.vhd was successful.
+# Compile of tb_shiftleft2.vhd was successful.
+# Compile of tb_signextend.vhd was successful.
+# 12 compiles, 0 failed with no errors.
+vsim work.tb_pc
+# vsim work.tb_pc 
+# Start time: 22:09:18 on Sep 22,2022
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: License feature 'msimhdlsim' will expire in 13 days.
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.tb_pc(behavioral)#1
+add wave -position insertpoint  \
+sim:/tb_pc/tb_clk \
+sim:/tb_pc/tb_write_enable \
+sim:/tb_pc/tb_rst \
+sim:/tb_pc/tb_AddressIn \
+sim:/tb_pc/tb_AddressOut \
+sim:/tb_pc/clk_period
+run
+run
+run
+run
+run
+run
+# End time: 22:12:04 on Sep 22,2022, Elapsed time: 0:02:46
+# Errors: 0, Warnings: 0

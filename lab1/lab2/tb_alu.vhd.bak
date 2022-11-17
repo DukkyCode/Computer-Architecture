@@ -1,0 +1,63 @@
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.numeric_std.all;
+
+entity tb_alu is
+    --Declare entity
+end entity;
+
+architecture behavioral of tb_alu is
+    component alu is
+        port(
+            in0       : in     STD_LOGIC_VECTOR(63 downto 0);
+            in1       : in     STD_LOGIC_VECTOR(63 downto 0);
+            operation : in     STD_LOGIC_VECTOR(3 downto 0);
+            result    : buffer STD_LOGIC_VECTOR(63 downto 0);
+            zero      : buffer STD_LOGIC;
+            overflow  : buffer STD_LOGIC
+        );
+    end component;
+
+    signal tb_in0       :      STD_LOGIC_VECTOR(63 downto 0);
+    signal tb_in1       :      STD_LOGIC_VECTOR(63 downto 0);
+    signal tb_operation :      STD_LOGIC_VECTOR(3 downto 0);
+    signal tb_result    :      STD_LOGIC_VECTOR(63 downto 0);
+    signal tb_zero      :      STD_LOGIC := '0';
+    signal tb_overflow  :      STD_LOGIC;
+
+    begin
+        uut: alu port map(in0 => tb_in0, in1 => tb_in1, operation => tb_operation, result =>tb_result, zero => tb_zero, overflow => tb_overflow);
+
+        stimulus: process
+        begin
+            --AND operation
+            tb_operation <=  "0000";
+            tb_in0       <=   X"000000000000FFFF";
+            tb_in1       <=   X"0000000000001111"; --Answer should be: 1111
+            wait for 100 ns;
+
+            --OR operation
+            tb_operation <=  "0001";               --Answer should be: 3333           
+            wait for 100 ns;
+            
+            --ADD operation
+            tb_operation <= "0010";		   --Answer should be: 11110
+            wait for 100 ns;
+            
+            --Subtract operation
+            tb_operation <= "0110";                --Answer should be: EEEE
+            wait for 100 ns; 
+
+            --pass input b operation
+            tb_in1       <=   X"0000000000000000";	
+            tb_operation <= "0111";                --Answer should be: 1111
+            wait for 100 ns;
+            
+            --NOR operation
+            tb_operation <= "1100";                 --Answer should be 0000
+            wait for 100 ns;            
+        
+        end process;
+
+
+end behavioral;

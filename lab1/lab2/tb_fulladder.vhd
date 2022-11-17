@@ -1,0 +1,57 @@
+
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.numeric_std.all;
+
+entity tb_fulladder is
+    --Declare entity
+end entity;
+
+architecture behavioral of tb_fulladder is
+    component fulladder is
+        port(
+            in0             : in std_logic;
+            in1             : in std_logic;
+            carry_in        : in std_logic;
+            carry_out       : out std_logic;
+            output          : out std_logic
+        );
+    end component;
+
+    --Initialize signals
+    signal tb_in0              : std_logic;
+    signal tb_in1              : std_logic;
+    signal tb_carry_in         : std_logic;
+    signal tb_carry_out        : std_logic;
+    signal tb_output           : std_logic;
+
+    begin
+        uut : fulladder port map(in0 => tb_in0, in1 => tb_in1 , carry_in => tb_carry_in, carry_out => tb_carry_out, output => tb_output);
+
+        stimulus: process
+        begin
+            --Test case 0
+            tb_in0          <= '0';
+            tb_in1          <= '0';
+            tb_carry_in     <= '0';
+            wait for 100 ns;
+            
+            --Test case 1
+            tb_in0          <= '1';
+            tb_in1          <= '0';
+            tb_carry_in     <= '1';
+            wait for 100 ns;
+
+            --Test case 2
+            tb_in0          <= '1';
+            tb_in1          <= '1';
+            tb_carry_in     <= '0';
+            wait for 100 ns;
+
+            --Test case 3
+            tb_in0          <= '1';
+            tb_in1          <= '1';
+            tb_carry_in     <= '1';
+            wait for 100 ns;     
+        end process;
+end behavioral;

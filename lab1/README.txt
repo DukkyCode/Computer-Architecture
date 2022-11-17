@@ -1,0 +1,4 @@
+- These are the test benches for the component: tb_and2.vhd, tb_mux5.vhd, tb_mux64.vhd, tb_shiftleft2.vhd, tb_pc.vhd, and tb_signextend.vhd.
+- Include these scripts with the main components scripts
+- Simulate the scripts and view the results. 
+- The Simulation does not have an end, so it is easier to simulate the wave every cycle

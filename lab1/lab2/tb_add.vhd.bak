@@ -1,0 +1,34 @@
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.numeric_std.all;
+
+entity tb_add is
+    --Declare entity
+end entity;
+
+architecture behavioral of tb_add is
+    component add is
+        port(
+            in0    : in  STD_LOGIC_VECTOR(63 downto 0);
+            in1    : in  STD_LOGIC_VECTOR(63 downto 0);
+            output : out STD_LOGIC_VECTOR(63 downto 0)
+        );
+    end component;
+
+    signal tb_in0   : STD_LOGIC_VECTOR(63 downto 0);
+    signal tb_in1   : STD_LOGIC_VECTOR(63 downto 0);
+    signal tb_output: STD_LOGIC_VECTOR(63 downto 0);
+
+begin
+    uut: add port map(in0 => tb_in0, in1 => tb_in1, output => tb_output);
+
+    stimulus:process
+    begin
+        tb_in0 <= X"000000000000FFFF";
+        tb_in1 <= X"0000000000001111";
+        wait for 100 ns;
+        
+        tb_in0 <= X"000000000000EEEE";
+        tb_in1 <= X"0000000000022222";
+    end process;
+end behavioral;

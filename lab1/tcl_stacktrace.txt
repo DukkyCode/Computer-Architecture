@@ -1,0 +1,10 @@
+Thu Sep 22 21:59:59 EDT 2022
+Trace back: grab failed: another application has grab
+    while executing
+"grab -global $w"
+    (procedure "tk::TraverseToMenu" line 20)
+    invoked from within
+"tk::TraverseToMenu .main_pane.wave.interior.cs.body.pw.wf.grid.row0,name.data v"
+    (command bound to event)
+  <2:/usr/cots/mentor/questa/questasim/linux_x86_64/tk8.6/bgerror.tcl:106: ::tkerror {grab failed: another application has grab}
+  <1:eval:1: ::tk::dialog::error::bgerror {grab failed: another application has grab}

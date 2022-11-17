@@ -1,0 +1,184 @@
+library ieee;
+use IEEE.std_logic_1164.all;
+use IEEE.numeric_std.all;
+
+entity IMEM is
+-- The instruction memory is a byte addressable, little-endian, read-only memory
+-- Reads occur continuously
+-- HINT: Use the provided dmem.vhd as a starting point
+generic(NUM_BYTES : integer := 128);
+-- NUM_BYTES is the number of bytes in the memory (small to save computation resources)
+port(
+     Address  : in  STD_LOGIC_VECTOR(63 downto 0); -- Address to read from
+     ReadData : out STD_LOGIC_VECTOR(31 downto 0)
+);
+end IMEM;
+
+architecture behavioral of IMEM is
+     type ByteArray is array (0 to NUM_BYTES) of STD_LOGIC_VECTOR(7 downto 0);
+     signal imemBytes: ByteArray;
+begin
+          process(Address)
+               variable  addr: integer;
+               variable  first: boolean := true; --Used for initializaion     
+          begin
+               if(first) then
+                    -- Example: MEM(0x0) = 0x0000000000000010 (Hex) 
+                    --  1(decimal)
+                    imemBytes(7)  <= "00001111";
+                    imemBytes(6)  <= "00001111";  
+                    imemBytes(5)  <= "00001111";  
+                    imemBytes(4)  <= "00001111";  
+                    imemBytes(3)  <= "00001111";
+                    imemBytes(2)  <= "00001111";  
+                    imemBytes(1)  <= "00001111";  
+                    imemBytes(0)  <= "00001111";  --least significant has the lowest address
+           
+                    imemBytes(15) <= "00001111";
+                    imemBytes(14) <= "00001111";  
+                    imemBytes(13) <= "00001111";  
+                    imemBytes(12) <= "00001111";  
+                    imemBytes(11) <= "00001111";
+                    imemBytes(10) <= "00001111";  
+                    imemBytes(9)  <= "00001111";  
+                    imemBytes(8)  <= "00001111";  
+           
+                    imemBytes(23)  <= "00000000";
+                    imemBytes(22)  <= "00000000";  
+                    imemBytes(21)  <= "00000000";  
+                    imemBytes(20)  <= "00000000";  
+                    imemBytes(19)  <= "00000000";
+                    imemBytes(18)  <= "00000000";  
+                    imemBytes(17)  <= "00000000";  
+                    imemBytes(16)  <= "00000000";  
+           
+                    imemBytes(31)  <= "00000000";
+                    imemBytes(30)  <= "00000000";  
+                    imemBytes(29)  <= "00000000";  
+                    imemBytes(28)  <= "00000000";  
+                    imemBytes(27)  <= "00000000";
+                    imemBytes(26)  <= "00000000";  
+                    imemBytes(25)  <= "00000000";  
+                    imemBytes(24)  <= "00000000";  
+                    
+                    imemBytes(39)  <= "00000000";
+                    imemBytes(38)  <= "00000000";  
+                    imemBytes(37)  <= "00000000";  
+                    imemBytes(36)  <= "00000000";
+                    imemBytes(35)  <= "00000000";
+                    imemBytes(34)  <= "00000000";  
+                    imemBytes(33)  <= "00000000";  
+                    imemBytes(32)  <= "00000000"; 
+           
+                    imemBytes(47)  <= "00000000";
+                    imemBytes(46)  <= "00000000";  
+                    imemBytes(45)  <= "00000000";  
+                    imemBytes(44)  <= "00000000";         
+                    imemBytes(43)  <= "00000000";
+                    imemBytes(42)  <= "00000000";  
+                    imemBytes(41)  <= "00000001";  
+                    imemBytes(40)  <= "00000000";  
+           
+                    imemBytes(55)  <= "00000000";
+                    imemBytes(54)  <= "00000000";  
+                    imemBytes(53)  <= "00000000";  
+                    imemBytes(52)  <= "00000000";           
+                    imemBytes(51)  <= "00000000";
+                    imemBytes(50)  <= "00000000";  
+                    imemBytes(49)  <= "00000000";  
+                    imemBytes(48)  <= "00000000";
+           
+                    imemBytes(63)  <= "00000000";
+                    imemBytes(62)  <= "00000000";  
+                    imemBytes(61)  <= "00000000";  
+                    imemBytes(60)  <= "00000000";           
+                    imemBytes(59)  <= "00000000";
+                    imemBytes(58)  <= "00000000";  
+                    imemBytes(57)  <= "00000000";  
+                    imemBytes(56)  <= "00000000";
+                    
+                    imemBytes(71) <= "00000000";
+                    imemBytes(70) <= "00000000";
+                    imemBytes(69) <= "00000000";
+                    imemBytes(68) <= "00000000";
+                    imemBytes(67) <= "00000000";
+                    imemBytes(66) <= "00000000";
+                    imemBytes(65) <= "00000000";
+                    imemBytes(64) <= "00000000";
+
+                    imemBytes(79) <= "00000000";
+                    imemBytes(78) <= "00000000";
+                    imemBytes(77) <= "00000000";
+                    imemBytes(76) <= "00000000";
+                    imemBytes(75) <= "00000000";
+                    imemBytes(74) <= "00000000";
+                    imemBytes(73) <= "00000000";
+                    imemBytes(72) <= "00000000";
+
+                    imemBytes(87) <= "00000000";
+                    imemBytes(86) <= "00000000";
+                    imemBytes(85) <= "00000000";
+                    imemBytes(84) <= "00000000";
+                    imemBytes(83) <= "00000000";
+                    imemBytes(82) <= "00000000";
+                    imemBytes(81) <= "00000000";
+                    imemBytes(80) <= "00000000";
+
+                    imemBytes(95) <= "00000000";
+                    imemBytes(94) <= "00000000";
+                    imemBytes(93) <= "00000000";
+                    imemBytes(92) <= "00000000";
+                    imemBytes(91) <= "00000000";
+                    imemBytes(90) <= "00000000";
+                    imemBytes(89) <= "00000000";
+                    imemBytes(88) <= "00000000";
+
+                    imemBytes(103) <= "00000000";
+                    imemBytes(102) <= "00000000";
+                    imemBytes(101) <= "00000000";
+                    imemBytes(100) <= "00000000";
+                    imemBytes(99) <= "00000000";
+                    imemBytes(98) <= "00000000";
+                    imemBytes(97) <= "00000000";
+                    imemBytes(96) <= "00000000";
+
+                    imemBytes(111) <= "00000000";
+                    imemBytes(110) <= "00000000";
+                    imemBytes(109) <= "00000000";
+                    imemBytes(108) <= "00000000";
+                    imemBytes(107) <= "00000000";
+                    imemBytes(106) <= "00000000";
+                    imemBytes(105) <= "00000000";
+                    imemBytes(104) <= "00000000";
+
+                    imemBytes(119) <= "00000000";
+                    imemBytes(118) <= "00000000";
+                    imemBytes(117) <= "00000000";
+                    imemBytes(116) <= "00000000";
+                    imemBytes(115) <= "00000000";
+                    imemBytes(114) <= "00000000";
+                    imemBytes(113) <= "00000000";
+                    imemBytes(112) <= "00000000";
+
+                    imemBytes(127) <= "00000000";
+                    imemBytes(126) <= "00000000";
+                    imemBytes(125) <= "00000000";
+                    imemBytes(124) <= "00000000";
+                    imemBytes(123) <= "00000000";
+                    imemBytes(122) <= "00000000";
+                    imemBytes(121) <= "00000000";
+                    imemBytes(120) <= "00000000";
+                    
+                    first := false;
+               end if;
+               
+               addr :=  to_integer(unsigned(Address)); --Convert the address to an integer
+
+               if (addr + 3 > NUM_BYTES) then report "Invalid IMEM addr. Attempted to read 4-bytes starting at address " 
+                    severity error;
+               else
+                    ReadData <= imemBytes(addr+3) & imemBytes(addr+2) &
+                         imemBytes(addr+1) & imemBytes(addr+0);                     
+               end if;
+          end process;
+end behavioral;
