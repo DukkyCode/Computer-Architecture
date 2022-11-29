@@ -11,7 +11,7 @@ entity hazard_unit is
             
             mux_sel             : out STD_LOGIC;
             IFID_Write          : out STD_LOGIC;
-            PC_Write            : out STD_LOGIC;  
+            PC_Write            : out STD_LOGIC  
     );
 end hazard_unit;
 

@@ -6,6 +6,7 @@ entity IFID is
     port(
         clk             : in STD_LOGIC;
         rst             : in STD_LOGIC;
+        write_enable    : in STD_LOGIC;
         IF_pc           : in STD_LOGIC_VECTOR(63 downto 0);
         IF_imem         : in STD_LOGIC_VECTOR(31 downto 0);
         ID_pc           : out STD_LOGIC_VECTOR(63 downto 0);
@@ -23,8 +24,10 @@ begin
             ID_imem     <= (others => '0'); 
             ID_pc       <= (others => '0');   
         elsif rising_edge(clk) then
-            ID_imem     <= IF_imem;
-            ID_pc       <= IF_pc;            
+            if write_enable = '1' then
+                ID_imem     <= IF_imem;
+                ID_pc       <= IF_pc;
+            end if;            
         end if;
     end process clock;
 

@@ -14,7 +14,7 @@ entity forward_unit is
         MEMWB_RegWrite  : in STD_LOGIC;
         
         forwardA        : out STD_LOGIC_VECTOR(1 downt0 0);
-        forwardB        : out STD_LOGIC_VECTOR(1 downto 0);        
+        forwardB        : out STD_LOGIC_VECTOR(1 downto 0)        
     );
 end forward_unit;
 

@@ -8,7 +8,7 @@ entity MUX64_FORWARD is
         in1         : in STD_LOGIC_VECTOR(63 downto 0);
         in2         : in STD_LOGIC_VECTOR(63 downto 0);
         sel         : in STD_LOGIC_VECTOR(1 downto 0);
-        output      : out STD_LOGIC_VECTOR(63 downto 0);
+        output      : out STD_LOGIC_VECTOR(63 downto 0)
     );
 end MUX64_FORWARD;
 
