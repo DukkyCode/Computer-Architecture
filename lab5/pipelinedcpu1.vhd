@@ -457,6 +457,7 @@ begin
                             AddressIn => pc_addressin, 
                             AddressOut => pc_addressout);
     DEBUG_PC <= pc_addressout;
+    DEBUG_PC_WRITE_ENABLE <= PC_we;
     
     u2  : MUX64 port map(   in0 => add_out,
                             in1 => sig_MEM_addr,
@@ -593,6 +594,7 @@ begin
                                     in2 => sig_MEM_aluresult,
                                     sel => sig_forwardA,
                                     output => forwardA_output);
+    DEBUG_FORWARDA <= sig_forwardA;
     
     --Forward B Unit
     u17 : MUX64_FORWARD port map(   in0 => sig_EX_RD2,                     --Remember to fill this
@@ -600,6 +602,7 @@ begin
                                     in2 => sig_MEM_aluresult,
                                     sel => sig_forwardB,
                                     output => forwardB_output);
+    DEBUG_FORWARDB <= sig_forwardB;
     
     u18 : MUX64 port map(       in0 => forwardB_output,
                                 in1 => sig_EX_signextend,
