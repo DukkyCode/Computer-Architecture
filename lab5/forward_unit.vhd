@@ -8,12 +8,12 @@ entity forward_unit is
         IDEX_Rm         : in STD_LOGIC_VECTOR(4 downto 0);
         
         EXMEM_Rd        : in STD_LOGIC_VECTOR(4 downto 0);
-        MEMWB_Rd        : in STD_LOGIC_VECTOR(4 downt0 0);
+        MEMWB_Rd        : in STD_LOGIC_VECTOR(4 downto 0);
         
         EXMEM_RegWrite  : in STD_LOGIC;
         MEMWB_RegWrite  : in STD_LOGIC;
         
-        forwardA        : out STD_LOGIC_VECTOR(1 downt0 0);
+        forwardA        : out STD_LOGIC_VECTOR(1 downto 0);
         forwardB        : out STD_LOGIC_VECTOR(1 downto 0)        
     );
 end forward_unit;

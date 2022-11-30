@@ -280,11 +280,11 @@ architecture behavioral of PipelinedCPU1 is
             IDEX_Rm         : in STD_LOGIC_VECTOR(4 downto 0);
             
             EXMEM_Rd        : in STD_LOGIC_VECTOR(4 downto 0);
-            MEMWB_Rd        : in STD_LOGIC_VECTOR(4 downt0 0);
+            MEMWB_Rd        : in STD_LOGIC_VECTOR(4 downto 0);
             
             EXMEM_RegWrite  : in STD_LOGIC;
             MEMWB_RegWrite  : in STD_LOGIC;
-            forwardA        : out STD_LOGIC_VECTOR(1 downt0 0);
+            forwardA        : out STD_LOGIC_VECTOR(1 downto 0);
             forwardB        : out STD_LOGIC_VECTOR(1 downto 0)
         );
     end component;
@@ -531,7 +531,7 @@ begin
                                 sel => hazard_muxsel, 
                                 output => mux8_out);
 
-    u10  : IDEX port map(   clk  => sys_clk,
+    u12  : IDEX port map(   clk  => sys_clk,
                             rst  => sys_rst,
                             ID_pc => sig_ID_pc,
                             ID_RD1 => Registers_RD1,
@@ -570,54 +570,54 @@ begin
                             EX_ALUOp => sig_EX_ALUOp);
 
     --------Pipeline Register: EXMEM--------
-    u11 : ShiftLeft2 port map(  x => sig_EX_signextend,
+    u13 : ShiftLeft2 port map(  x => sig_EX_signextend,
                                 y => data_shiftleft);     
 
-    u12 : add port map(         in0 => sig_EX_pc,
+    u14 : add port map(         in0 => sig_EX_pc,
                                 in1 => data_shiftleft,
                                 output => sig_EX_addresult);
 
     --Forwarding Unit
-    u13: forward_unit port map( IDEX_Rn => sig_EX_in95,                 --Remember to fill this
+    u15: forward_unit port map( IDEX_Rn => sig_EX_in95,                 --Remember to fill this
                                 IDEX_Rm => sig_EX_in2016,
                                 EXMEM_Rd => sig_MEM_in40,
                                 MEMWB_Rd => sig_WB_in40,
                                 EXMEM_RegWrite => sig_MEM_RegWrite,
                                 MEMWB_RegWrite => sig_WB_RegWrite,
                                 forwardA => sig_forwardA,
-                                forwardB => sig_forwardB)
+                                forwardB => sig_forwardB);
     
     --Forward A Unit
-    u14 : MUX64_FORWARD port map(   in0 => sig_EX_RD1,                     --Remember to fill this
+    u16 : MUX64_FORWARD port map(   in0 => sig_EX_RD1,                     --Remember to fill this
                                     in1 => Registers_WD,
                                     in2 => sig_MEM_aluresult,
                                     sel => sig_forwardA,
-                                    output => forwardA_output)
+                                    output => forwardA_output);
     
     --Forward B Unit
-    u15 : MUX64_FORWARD port map(   in0 => sig_EX_RD2,                     --Remember to fill this
+    u17 : MUX64_FORWARD port map(   in0 => sig_EX_RD2,                     --Remember to fill this
                                     in1 => Registers_WD,
                                     in2 => sig_MEM_aluresult,
                                     sel => sig_forwardB,
-                                    output => forwardB_output)
+                                    output => forwardB_output);
     
-    u16 : MUX64 port map(       in0 => forwardB_output,
+    u18 : MUX64 port map(       in0 => forwardB_output,
                                 in1 => sig_EX_signextend,
                                 sel => sig_EX_ALUSrc,
                                 output => alu_muxinput);
     
-    u17  : ALUControl port map( ALUOp => sig_EX_ALUOp,
+    u19  : ALUControl port map( ALUOp => sig_EX_ALUOp,
                                 Opcode => sig_EX_in3121,
                                 Operation => alu_operation);    
 
-    u18  : alu port map(        in0 => forwardA_output,
+    u20  : alu port map(        in0 => forwardA_output,
                                 in1 => alu_muxinput,
                                 operation => alu_operation,
                                 result => sig_EX_aluresult,
                                 zero => alu_zero,
                                 overflow => alu_overflow);
                             
-    u19 : EXMEM port map(       clk  => sys_clk,
+    u21 : EXMEM port map(       clk  => sys_clk,
                                 rst  => sys_rst,
                                 --Control Unit Lines
                                 EX_CBranch => sig_EX_CBranch,
@@ -647,15 +647,15 @@ begin
                                 MEM_in40 => sig_MEM_in40);
 
     --------Pipeline Register: MEMWB --------
-    u20  : andgate port map(    x => sig_MEM_CBranch,
+    u22  : andgate port map(    x => sig_MEM_CBranch,
                                 y => sig_MEM_zeroflag,
                                 z => andgateoutput);
 
-    u21  : orgate port map(     x => sig_MEM_UBranch,
+    u23  : orgate port map(     x => sig_MEM_UBranch,
                                 y => andgateoutput,
                                 z => PCsrc);
                                 
-    u22  : DMEM port map(       WriteData => sig_MEM_RD2,
+    u24  : DMEM port map(       WriteData => sig_MEM_RD2,
                                 Address => sig_MEM_aluresult,
                                 MemRead => sig_MEM_MemRead,
                                 MemWrite => sig_MEM_MemWrite,
@@ -663,7 +663,7 @@ begin
                                 ReadData => sig_MEM_ReadData,
                                 DEBUG_MEM_CONTENTS => DEBUG_MEM_CONTENTS);
                                 
-    u23  : MEMWB port map(      clk => sys_clk,
+    u25  : MEMWB port map(      clk => sys_clk,
                                 rst => sys_rst,           
                                 --Control Lines
                                 MEM_RegWrite => sig_MEM_RegWrite,    
@@ -680,7 +680,7 @@ begin
                                 WB_ReadData => sig_WB_ReadData,   
                                 WB_aluresult => sig_WB_aluresult);
 
-    u24  : MUX64 port map(      in0 => sig_WB_aluresult,
+    u26  : MUX64 port map(      in0 => sig_WB_aluresult,
                                 in1 => sig_WB_ReadData,
                                 sel => sig_WB_MemtoReg,
                                 output => Registers_WD);

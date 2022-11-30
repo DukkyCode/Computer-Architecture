@@ -1,0 +1,214 @@
+/h/dnguye22/lab5/signextend.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /h/dnguye22/lab5/signextend.vhd
+QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity signextend
+-- Compiling architecture behavioral of signextend
+
+} {} {}} /h/dnguye22/lab5/orgate.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /h/dnguye22/lab5/orgate.vhd
+QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity orgate
+-- Compiling architecture behavioral of orgate
+
+} {} {}} /h/dnguye22/lab5/alu.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /h/dnguye22/lab5/alu.vhd
+QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity ALU
+-- Compiling architecture behavioral of ALU
+
+} {} {}} /h/dnguye22/lab5/pipelinedcpu1.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /h/dnguye22/lab5/pipelinedcpu1.vhd
+QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity PipelinedCPU1
+-- Compiling architecture behavioral of PipelinedCPU1
+
+} {} {}} /h/dnguye22/lab5/shiftleft2.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /h/dnguye22/lab5/shiftleft2.vhd
+QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity ShiftLeft2
+-- Compiling architecture behavioral of ShiftLeft2
+
+} {} {}} /h/dnguye22/lab5/pc.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /h/dnguye22/lab5/pc.vhd
+QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity PC
+-- Compiling architecture behavioral of PC
+
+} {} {}} /h/dnguye22/lab5/alucontrol.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /h/dnguye22/lab5/alucontrol.vhd
+QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity ALUControl
+-- Compiling architecture behavioral of ALUcontrol
+
+} {} {}} /h/dnguye22/lab5/fulladder.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /h/dnguye22/lab5/fulladder.vhd
+QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity fulladder
+-- Compiling architecture structural of fulladder
+
+} {} {}} /h/dnguye22/lab5/EXMEM.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /h/dnguye22/lab5/EXMEM.vhd
+QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity EXMEM
+-- Compiling architecture behavioral of EXMEM
+
+} {} {}} /h/dnguye22/lab5/mux5.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /h/dnguye22/lab5/mux5.vhd
+QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity MUX5
+-- Compiling architecture behavioral of MUX5
+
+} {} {}} /h/dnguye22/lab5/registers.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /h/dnguye22/lab5/registers.vhd
+QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity registers
+-- Compiling architecture behaveioral of registers
+
+} {} {}} /h/dnguye22/lab5/mux64_forward.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /h/dnguye22/lab5/mux64_forward.vhd
+QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity MUX64_FORWARD
+-- Compiling architecture behavioral of MUX64_FORWARD
+
+} {} {}} /h/dnguye22/lab5/MEMWB.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /h/dnguye22/lab5/MEMWB.vhd
+QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity MEMWB
+-- Compiling architecture behavioral of MEMWB
+
+} {} {}} /h/dnguye22/lab5/imem.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /h/dnguye22/lab5/imem.vhd
+QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity IMEM
+-- Compiling architecture behavioral of IMEM
+
+} {} {}} /h/dnguye22/lab5/add.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /h/dnguye22/lab5/add.vhd
+QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity ADD
+-- Compiling architecture structural of add
+
+} {} {}} /h/dnguye22/lab5/cpucontrol.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /h/dnguye22/lab5/cpucontrol.vhd
+QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity CPUControl
+-- Compiling architecture behavioral of CPUControl
+
+} {} {}} /h/dnguye22/lab5/hazard_unit.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /h/dnguye22/lab5/hazard_unit.vhd
+QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity hazard_unit
+-- Compiling architecture behavioral of hazard_unit
+
+} {} {}} /h/dnguye22/lab5/mux8.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /h/dnguye22/lab5/mux8.vhd
+QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity MUX8
+-- Compiling architecture behavioral of MUX8
+
+} {} {}} /h/dnguye22/lab5/IDEX.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /h/dnguye22/lab5/IDEX.vhd
+QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity IDEX
+-- Compiling architecture behavioral of IDEX
+
+} {} {}} /h/dnguye22/lab5/halfadder.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /h/dnguye22/lab5/halfadder.vhd
+QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity halfadder
+-- Compiling architecture behavioral of halfadder
+
+} {} {}} /h/dnguye22/lab5/mux64.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /h/dnguye22/lab5/mux64.vhd
+QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity MUX64
+-- Compiling architecture behavioral of MUX64
+
+} {} {}} /h/dnguye22/lab5/IFID.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /h/dnguye22/lab5/IFID.vhd
+QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity IFID
+-- Compiling architecture behavioral of IFID
+
+} {} {}} /h/dnguye22/lab5/andgate.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /h/dnguye22/lab5/andgate.vhd
+QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity andgate
+-- Compiling architecture behavioral of andgate
+
+} {} {}} /h/dnguye22/lab5/forward_unit.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /h/dnguye22/lab5/forward_unit.vhd
+QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity forward_unit
+-- Compiling architecture behavioral of forward_unit
+
+} {} {}} /h/dnguye22/Downloads/lab5/dmem.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /h/dnguye22/Downloads/lab5/dmem.vhd
+QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity DMEM
+-- Compiling architecture behavioral of DMEM
+
+} {} {}}
