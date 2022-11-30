@@ -12,6 +12,8 @@ entity IDEX is
         ID_signextend   : in STD_LOGIC_VECTOR(63 downto 0);
         ID_in3121       : in STD_LOGIC_VECTOR(10 downto 0);
         ID_in40         : in STD_LOGIC_VECTOR(4 downto 0);
+        ID_in95         : in STD_LOGIC_VECTOR(4 downto 0);
+        ID_in2016       : in STD_LOGIC_VECTOR(4 downto 0);
         --Control Lines                     
         ID_CBranch      : in STD_LOGIC;
         ID_MemRead      : in STD_LOGIC;
@@ -28,6 +30,8 @@ entity IDEX is
         EX_signextend   : out STD_LOGIC_VECTOR(63 downto 0);
         EX_in3121       : out STD_LOGIC_VECTOR(10 downto 0);
         EX_in40         : out STD_LOGIC_VECTOR(4 downto 0);
+        EX_in95         : out STD_LOGIC_VECTOR(4 downto 0);
+        EX_in2016       : out STD_LOGIC_VECTOR(4 downto 0);
         --Control Lines Output
         EX_CBranch      : out STD_LOGIC;
         EX_MemRead      : out STD_LOGIC;
@@ -43,7 +47,7 @@ end entity;
 architecture behavioral of IDEX is
     signal rst_val      : STD_LOGIC  := '1';
 begin
-    clock: process(clk, rst, ID_pc, ID_RD1, ID_RD2, ID_signextend, ID_in3121, ID_in40, ID_CBranch, ID_MemRead, ID_MemtoReg, ID_MemWrite, ID_ALUSrc, ID_RegWrite, ID_UBranch, ID_ALUOp)
+    clock: process(clk, rst, ID_pc, ID_RD1, ID_RD2, ID_signextend, ID_in3121, ID_in40, ID_in95, ID_in2016,ID_CBranch, ID_MemRead, ID_MemtoReg, ID_MemWrite, ID_ALUSrc, ID_RegWrite, ID_UBranch, ID_ALUOp)
     begin
         if rst = rst_val then
             EX_pc           <= (others => '0');  
@@ -51,7 +55,9 @@ begin
             EX_RD2          <= (others => '0'); 
             EX_signextend   <= (others => '0'); 
             EX_in3121       <= (others => '0'); 
-            EX_in40         <= (others => '0'); 
+            EX_in40         <= (others => '0');
+            EX_in95         <= (others => '0');
+            EX_in2016       <= (others => '0'); 
             --Control Lines Output
             EX_CBranch      <= '0';
             EX_MemRead      <= '0';
@@ -68,6 +74,8 @@ begin
             EX_signextend   <= ID_signextend; 
             EX_in3121       <= ID_in3121; 
             EX_in40         <= ID_in40;
+            EX_in95         <= ID_in95;
+            EX_in2016       <= ID_in2016;
             --Control Lines Output
             EX_CBranch      <= ID_CBranch;
             EX_MemRead      <= ID_MemRead;
