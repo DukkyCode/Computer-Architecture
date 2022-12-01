@@ -28,7 +28,7 @@ begin
             forwardA <= "10";
         elsif (MEMWB_RegWrite = '1') and (MEMWB_Rd /= "11111") and (MEMWB_Rd = IDEX_Rn) then 
             forwardA <= "01";
-        else
+        else 
             forwardA <= "00";
         end if;
 
