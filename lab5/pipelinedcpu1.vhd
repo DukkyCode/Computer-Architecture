@@ -257,7 +257,7 @@ architecture behavioral of PipelinedCPU1 is
             clk             :   in STD_LOGIC;
             rst             :   in STD_LOGIC;
             --Control Lines
-            MEM_RegWrite    :   in STD_LOGIC;
+	    MEM_RegWrite    :   in STD_LOGIC;
             MEM_MemtoReg    :   in STD_LOGIC;
             --Normal Lines
             MEM_ReadData    :   in STD_LOGIC_VECTOR(63 downto 0);
@@ -278,13 +278,14 @@ architecture behavioral of PipelinedCPU1 is
         port(
             IDEX_Rn         : in STD_LOGIC_VECTOR(4 downto 0);
             IDEX_Rm         : in STD_LOGIC_VECTOR(4 downto 0);
-            
+		
             EXMEM_Rd        : in STD_LOGIC_VECTOR(4 downto 0);
             MEMWB_Rd        : in STD_LOGIC_VECTOR(4 downto 0);
             
             EXMEM_RegWrite  : in STD_LOGIC;
             MEMWB_RegWrite  : in STD_LOGIC;
-            forwardA        : out STD_LOGIC_VECTOR(1 downto 0);
+	    
+	    forwardA        : out STD_LOGIC_VECTOR(1 downto 0);
             forwardB        : out STD_LOGIC_VECTOR(1 downto 0)
         );
     end component;
@@ -440,6 +441,7 @@ architecture behavioral of PipelinedCPU1 is
     --Component: MEMWB
     signal sig_MEM_ReadData          : STD_LOGIC_VECTOR(63 downto 0);
     --Control Lines
+    signal sig_WB_MemWrite           : STD_LOGIC;
     signal sig_WB_RegWrite           : STD_LOGIC;   
     signal sig_WB_MemtoReg           : STD_LOGIC;
     --Normal Lines
@@ -541,16 +543,16 @@ begin
                             ID_in3121 => sig_ID_imem(31 downto 21),
                             ID_in40 => sig_ID_imem(4 downto 0),
                             ID_in95 => sig_ID_imem(9 downto 5),
-                            ID_in2016 => sig_ID_imem(20 downto 16),
+                            ID_in2016 => RR2_sel,
                             --Control Lines                     
-                            ID_CBranch => mux8_out(0),
-                            ID_MemRead => mux8_out(1),
-                            ID_MemtoReg => mux8_out(2),
-                            ID_MemWrite => mux8_out(3),
+                            ID_CBranch => mux8_out(8),
+                            ID_MemRead => mux8_out(7),
+                            ID_MemtoReg => mux8_out(6),
+                            ID_MemWrite => mux8_out(5),
                             ID_ALUSrc => mux8_out(4),
-                            ID_RegWrite => mux8_out(5),
-                            ID_UBranch => mux8_out(6),
-                            ID_ALUOp => mux8_out(8 downto 7),
+                            ID_RegWrite => mux8_out(3),
+                            ID_UBranch => mux8_out(2),
+                            ID_ALUOp => mux8_out(1 downto 0),
                             --Register, Instructions and sign extend output
                             EX_pc     => sig_EX_pc,
                             EX_RD1    => sig_EX_RD1,
@@ -580,7 +582,7 @@ begin
 
     --Forwarding Unit
     u15: forward_unit port map( IDEX_Rn => sig_EX_in95,                 --Remember to fill this
-                                IDEX_Rm => sig_EX_in2016,
+                                IDEX_Rm => sig_EX_in2016,				
                                 EXMEM_Rd => sig_MEM_in40,
                                 MEMWB_Rd => sig_WB_in40,
                                 EXMEM_RegWrite => sig_MEM_RegWrite,
@@ -633,7 +635,7 @@ begin
                                 EX_addr   => sig_EX_addresult,
                                 EX_zeroflag => alu_zero,
                                 EX_aluresult => sig_EX_aluresult,
-                                EX_RD2 => sig_EX_RD2,
+                                EX_RD2 => forwardB_output,
                                 EX_in40 => sig_EX_in40,       
                                 --Control Unit Lines
                                 MEM_CBranch => sig_MEM_CBranch,      

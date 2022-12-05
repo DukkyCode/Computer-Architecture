@@ -13,15 +13,12 @@
 # //  18 U.S.C. Section 1905.
 # //
 # Loading project lab5
-# Compile of pipelinedcpu1.vhd was successful.
 # Compile of add.vhd was successful.
 # Compile of alu.vhd was successful.
 # Compile of alucontrol.vhd was successful.
 # Compile of andgate.vhd was successful.
 # Compile of cpucontrol.vhd was successful.
-# Compile of dmem.vhd was successful.
 # Compile of EXMEM.vhd was successful.
-# Compile of forward_unit.vhd was successful.
 # Compile of fulladder.vhd was successful.
 # Compile of halfadder.vhd was successful.
 # Compile of hazard_unit.vhd was successful.
@@ -35,8 +32,76 @@
 # Compile of mux64_forward.vhd was successful.
 # Compile of orgate.vhd was successful.
 # Compile of pc.vhd was successful.
-# Compile of registers.vhd was successful.
 # Compile of shiftleft2.vhd was successful.
 # Compile of signextend.vhd was successful.
+# Compile of dmem.vhd was successful.
 # Compile of pipelinedcpu1.vhd was successful.
-# 25 compiles, 0 failed with no errors.
+# Compile of registers.vhd was successful.
+# Compile of tb_pipelinecpu1.vhd was successful.
+# Compile of forward_unit.vhd was successful.
+# 26 compiles, 0 failed with no errors.
+vsim work.tb_pipelinecpu1
+# vsim work.tb_pipelinecpu1 
+# Start time: 23:03:17 on Nov 30,2022
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.tb_pipelinecpu1(behavioral)#1
+# Loading work.pipelinedcpu1(behavioral)#1
+# Loading work.add(structural)#1
+# Loading work.dmem(behavioral)#1
+add wave -position insertpoint  \
+sim:/tb_pipelinecpu1/tb_clk \
+sim:/tb_pipelinecpu1/tb_rst \
+sim:/tb_pipelinecpu1/tb_DEBUG_FORWARDA \
+sim:/tb_pipelinecpu1/tb_DEBUG_FORWARDB \
+sim:/tb_pipelinecpu1/tb_DEBUG_PC \
+sim:/tb_pipelinecpu1/tb_DEBUG_PC_WRITE_ENABLE \
+sim:/tb_pipelinecpu1/tb_DEBUG_INSTRUCTION \
+sim:/tb_pipelinecpu1/tb_DEBUG_TMP_REGS \
+sim:/tb_pipelinecpu1/tb_DEBUG_SAVED_REGS \
+sim:/tb_pipelinecpu1/tb_DEBUG_MEM_CONTENTS
+run
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ns  Iteration: 0  Instance: /tb_pipelinecpu1/uut/u9
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ns  Iteration: 0  Instance: /tb_pipelinecpu1/uut/u9
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ns  Iteration: 0  Instance: /tb_pipelinecpu1/uut/u4
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ns  Iteration: 1  Instance: /tb_pipelinecpu1/uut/u9
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ns  Iteration: 1  Instance: /tb_pipelinecpu1/uut/u9
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 2320 ns  Iteration: 3  Instance: /tb_pipelinecpu1/uut/u9
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 2320 ns  Iteration: 4  Instance: /tb_pipelinecpu1/uut/u9
+run
+run
+# End time: 23:06:00 on Nov 30,2022, Elapsed time: 0:02:43
+# Errors: 0, Warnings: 7

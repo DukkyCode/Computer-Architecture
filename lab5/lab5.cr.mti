@@ -65,6 +65,15 @@ QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
 -- Compiling entity fulladder
 -- Compiling architecture structural of fulladder
 
+} {} {}} /h/dnguye22/lab5/tb_pipelinecpu1.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /h/dnguye22/lab5/tb_pipelinecpu1.vhd
+QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity tb_pipelinecpu1
+-- Compiling architecture behavioral of tb_pipelinecpu1
+
 } {} {}} /h/dnguye22/lab5/EXMEM.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /h/dnguye22/lab5/EXMEM.vhd
 QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
 -- Loading package STANDARD
@@ -91,15 +100,6 @@ QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
 -- Compiling entity registers
 -- Compiling architecture behaveioral of registers
 
-} {} {}} /h/dnguye22/lab5/mux64_forward.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /h/dnguye22/lab5/mux64_forward.vhd
-QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Loading package NUMERIC_STD
--- Compiling entity MUX64_FORWARD
--- Compiling architecture behavioral of MUX64_FORWARD
-
 } {} {}} /h/dnguye22/lab5/MEMWB.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /h/dnguye22/lab5/MEMWB.vhd
 QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
 -- Loading package STANDARD
@@ -108,6 +108,15 @@ QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
 -- Loading package NUMERIC_STD
 -- Compiling entity MEMWB
 -- Compiling architecture behavioral of MEMWB
+
+} {} {}} /h/dnguye22/lab5/mux64_forward.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /h/dnguye22/lab5/mux64_forward.vhd
+QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity MUX64_FORWARD
+-- Compiling architecture behavioral of MUX64_FORWARD
 
 } {} {}} /h/dnguye22/lab5/imem.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /h/dnguye22/lab5/imem.vhd
 QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
@@ -160,6 +169,15 @@ QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
 -- Compiling entity IDEX
 -- Compiling architecture behavioral of IDEX
 
+} {} {}} /h/dnguye22/lab5/dmem.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /h/dnguye22/lab5/dmem.vhd
+QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity DMEM
+-- Compiling architecture behavioral of DMEM
+
 } {} {}} /h/dnguye22/lab5/halfadder.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /h/dnguye22/lab5/halfadder.vhd
 QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
 -- Loading package STANDARD
@@ -201,14 +219,5 @@ QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
 -- Loading package NUMERIC_STD
 -- Compiling entity forward_unit
 -- Compiling architecture behavioral of forward_unit
-
-} {} {}} /h/dnguye22/Downloads/lab5/dmem.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /h/dnguye22/Downloads/lab5/dmem.vhd
-QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Loading package NUMERIC_STD
--- Compiling entity DMEM
--- Compiling architecture behavioral of DMEM
 
 } {} {}}

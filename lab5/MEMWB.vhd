@@ -13,8 +13,8 @@ entity MEMWB is
         MEM_ReadData    :   in STD_LOGIC_VECTOR(63 downto 0);
         MEM_aluresult   :   in STD_LOGIC_VECTOR(63 downto 0);
         MEM_in40        :   in STD_LOGIC_VECTOR(4 downto 0);
-        --Control Lines
-        WB_RegWrite     :   out STD_LOGIC;
+        --Control Lines        
+	WB_RegWrite     :   out STD_LOGIC;
         WB_MemtoReg     :   out STD_LOGIC;
         --Normal Lines
         WB_in40         :   out STD_LOGIC_VECTOR(4 downto 0);
@@ -30,7 +30,7 @@ begin
     begin
         if rst = rst_val then
             --Control Lines
-            WB_MemtoReg     <= '0';
+	    WB_MemtoReg     <= '0';
             WB_RegWrite     <= '0';
 	    WB_in40	    <= (others => '0');
             --Normal Lines
