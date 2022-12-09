@@ -53,7 +53,7 @@ architecture behavioral of tb_pipelinedcpu2 is
     signal tb_DEBUG_MEM_CONTENTS : STD_LOGIC_VECTOR(64*4 - 1 downto 0);
 
 begin
-    uut: PipelinedCPU1 port map(    clk => tb_clk,
+    uut: PipelinedCPU2 port map(    clk => tb_clk,
                                     rst => tb_rst,
                                     DEBUG_IF_FLUSH => tb_DEBUG_IF_FLUSH,
                                     DEBUG_REG_EQUAL => tb_DEBUG_REG_EQUAL,

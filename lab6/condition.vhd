@@ -5,7 +5,7 @@ entity condition is
     port(
         x               : in std_logic_vector(63 downto 0);
         y               : in std_logic_vector(63 downto 0);
-        z               : out std_logic;
+        z               : out std_logic
     );
 end condition;
 
@@ -14,9 +14,9 @@ architecture behavioral of condition is
         compare: process(x, y)
         begin
             if x = y then
-                z = '1';
+                z <= '1';
             else
-                z = '0';
+                z <= '0';
             end if;        
         end process compare;
 end behavioral;

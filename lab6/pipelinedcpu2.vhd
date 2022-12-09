@@ -1,3 +1,7 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.NUMERIC_STD.ALL;
+
 entity PipelinedCPU2 is
 port(
      clk :in std_logic;
@@ -174,7 +178,8 @@ architecture behavioral of PipelinedCPU2 is
          IF_imem         : in STD_LOGIC_VECTOR(31 downto 0);
          IF_Flush        : in  STD_LOGIC;   
          ID_pc           : out STD_LOGIC_VECTOR(63 downto 0);
-         ID_imem         : out STD_LOGIC_VECTOR(31 downto 0)               
+         ID_imem         : out STD_LOGIC_VECTOR(31 downto 0);
+	 ID_Flush        : out STD_LOGIC               
          );           
      end component;
 
@@ -328,7 +333,7 @@ architecture behavioral of PipelinedCPU2 is
           port(
               x               : in std_logic_vector(63 downto 0);
               y               : in std_logic_vector(63 downto 0);
-              z               : out std_logic;
+              z               : out std_logic
           );
      end component;
 
@@ -356,10 +361,12 @@ architecture behavioral of PipelinedCPU2 is
      signal sig_ID_pc         :    std_logic_vector(63 downto 0);
      signal sig_ID_imem       :    std_logic_vector(31 downto 0);
      signal sig_IFID_write    :    std_logic;
-     signal flushing          :    std_logic;
+     signal sig_IF_flushing   :    std_logic;
+     signal sig_ID_flushing   :    std_logic;
 
      --Branching Unit
      signal PCsrc                     : STD_LOGIC;
+     signal compare	      : STD_LOGIC;
 
 
      --------Pipeline Register: IDEX--------
@@ -390,7 +397,9 @@ architecture behavioral of PipelinedCPU2 is
 
      --Component: AND Gate
      signal andgateoutput             : STD_LOGIC;
-
+     signal flushing_control          : STD_LOGIC;
+     signal flushing                  : STD_LOGIC;
+   
      --Component: IDEX Register
      --Register, Instructions and sign extend output
      signal sig_EX_pc                 : STD_LOGIC_VECTOR(63 downto 0);
@@ -456,7 +465,8 @@ architecture behavioral of PipelinedCPU2 is
     signal sig_WB_aluresult          : STD_LOGIC_VECTOR(63 downto 0);
     signal sig_WB_in40               : STD_LOGIC_VECTOR(4 downto 0);
 
-
+    signal hazard_muxsel	     : STD_LOGIC;
+    signal mux8_out                  : STD_LOGIC_VECTOR(8 downto 0);
 
 begin
 
@@ -487,10 +497,11 @@ begin
                               write_enable => sig_IFID_write,
                               IF_pc => pc_addressout,
                               IF_imem => imem_data,
-                              IF_Flush => flushing,
+                              IF_Flush => sig_IF_flushing,
                               ID_pc => sig_ID_pc,
-                              ID_imem => sig_ID_imem);
-     DEBUG_IF_FLUSH <= flushing;
+                              ID_imem => sig_ID_imem,
+			      ID_Flush => sig_ID_flushing);
+     --DEBUG_IF_FLUSH <= flushing;
 
     --------Pipeline Register: IDEX--------                            
      u6  : CPUControl port map(    Opcode => sig_ID_imem(31 downto 21), 
@@ -560,13 +571,22 @@ begin
                                    mux_sel => hazard_muxsel,
                                    IFID_Write => sig_IFID_write,
                                    PC_Write => PC_we);
+     
+     u16 : andgate port map(       x => PCsrc,
+				   y => flushing,
+				   z => sig_IF_flushing);
+     DEBUG_IF_FLUSH <= sig_IF_flushing;
+
+     u17 : orgate port map(        x => sig_ID_flushing,
+				   y => hazard_muxsel,
+                                   z => flushing_control);
    
-     u16 : MUX8 port map(          in0 => CPUControl_catoutput, 
+     u18 : MUX8 port map(          in0 => CPUControl_catoutput, 
                                    in1 => "000000000", 
-                                   sel => hazard_muxsel, 
+                                   sel => flushing_control, 
                                    output => mux8_out);
 
-     u17  : IDEX port map(         clk  => sys_clk,
+     u19  : IDEX port map(         clk  => sys_clk,
                                    rst  => sys_rst,
                                    ID_pc => sig_ID_pc,
                                    ID_RD1 => Registers_RD1,
@@ -606,7 +626,7 @@ begin
 
      --------Pipeline Register: EXMEM--------
      --Forwarding Unit
-     u18: forward_unit port map(   IDEX_Rn => sig_EX_in95,                 --Remember to fill this
+     u20: forward_unit port map(   IDEX_Rn => sig_EX_in95,                 --Remember to fill this
                                    IDEX_Rm => sig_EX_in2016,				
                                    EXMEM_Rd => sig_MEM_in40,
                                    MEMWB_Rd => sig_WB_in40,
@@ -617,7 +637,7 @@ begin
 
 
     --Forward A Unit
-     u19 : MUX64_FORWARD port map( in0 => sig_EX_RD1,                     --Remember to fill this
+     u21 : MUX64_FORWARD port map( in0 => sig_EX_RD1,                     --Remember to fill this
                                    in1 => Registers_WD,
                                    in2 => sig_MEM_aluresult,
                                    sel => sig_forwardA,
@@ -625,30 +645,30 @@ begin
      DEBUG_FORWARDA <= sig_forwardA;
 
      --Forward B Unit
-     u20 : MUX64_FORWARD port map( in0 => sig_EX_RD2,                     --Remember to fill this
+     u22 : MUX64_FORWARD port map( in0 => sig_EX_RD2,                     --Remember to fill this
                                    in1 => Registers_WD,
                                    in2 => sig_MEM_aluresult,
                                    sel => sig_forwardB,
                                    output => forwardB_output);
      DEBUG_FORWARDB <= sig_forwardB;
 
-     u21 : MUX64 port map(    in0 => forwardB_output,
+     u23 : MUX64 port map(    in0 => forwardB_output,
                               in1 => sig_EX_signextend,
                               sel => sig_EX_ALUSrc,
                               output => alu_muxinput);
      
-     u22  : ALUControl port map(   ALUOp => sig_EX_ALUOp,
+     u24  : ALUControl port map(   ALUOp => sig_EX_ALUOp,
                                    Opcode => sig_EX_in3121,
                                    Operation => alu_operation);
                                    
-     u23  : alu port map(     in0 => forwardA_output,
+     u25  : alu port map(     in0 => forwardA_output,
                               in1 => alu_muxinput,
                               operation => alu_operation,
                               result => sig_EX_aluresult,
                               zero => alu_zero,
                               overflow => alu_overflow);
      
-     u24 : EXMEM port map(    clk  => sys_clk,
+     u26 : EXMEM port map(    clk  => sys_clk,
                               rst  => sys_rst,
                               --Control Unit Lines
                               EX_CBranch => sig_EX_CBranch,
@@ -678,7 +698,7 @@ begin
                               MEM_in40 => sig_MEM_in40);
 
     --------Pipeline Register: MEMWB --------
-     u25  : DMEM port map(    WriteData => sig_MEM_RD2,
+     u27  : DMEM port map(    WriteData => sig_MEM_RD2,
                               Address => sig_MEM_aluresult,
                               MemRead => sig_MEM_MemRead,
                               MemWrite => sig_MEM_MemWrite,
@@ -686,7 +706,7 @@ begin
                               ReadData => sig_MEM_ReadData,
                               DEBUG_MEM_CONTENTS => DEBUG_MEM_CONTENTS);
 
-     u26  : MEMWB port map(   clk => sys_clk,
+     u28  : MEMWB port map(   clk => sys_clk,
                               rst => sys_rst,           
                               --Control Lines
                               MEM_RegWrite => sig_MEM_RegWrite,    
@@ -703,7 +723,7 @@ begin
                               WB_ReadData => sig_WB_ReadData,   
                               WB_aluresult => sig_WB_aluresult);
 
-     u27  : MUX64 port map(   in0 => sig_WB_aluresult,
+     u29  : MUX64 port map(   in0 => sig_WB_aluresult,
                               in1 => sig_WB_ReadData,
                               sel => sig_WB_MemtoReg,
                               output => Registers_WD);

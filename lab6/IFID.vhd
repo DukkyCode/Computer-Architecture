@@ -11,15 +11,15 @@ entity IFID is
         IF_imem         : in STD_LOGIC_VECTOR(31 downto 0);
         IF_Flush        : in  STD_LOGIC;
         ID_pc           : out STD_LOGIC_VECTOR(63 downto 0);
-        ID_imem         : out STD_LOGIC_VECTOR(31 downto 0)               
-        );
+        ID_imem         : out STD_LOGIC_VECTOR(31 downto 0);
+	ID_Flush        : out STD_LOGIC);
      
 end IFID;
 
 architecture behavioral of IFID is    
     signal rst_val      :STD_LOGIC  := '1'; 
 begin
-    clock: process(clk, rst, IF_pc, IF_imem)
+    clock: process(clk, rst, write_enable)
     begin
         if rst = rst_val then
             ID_imem     <= (others => '0'); 
@@ -28,11 +28,8 @@ begin
             if write_enable = '1' then
                 ID_imem     <= IF_imem;
                 ID_pc       <= IF_pc;
-            elsif IF_Flush = '1' then
-                ID_imem     <= (others => '0');
-                ID_pc       <= IF_pc;
-            end if;            
-        end if;
+                ID_Flush    <= IF_Flush;
+            end if;                       
+       end if;
     end process clock;
-
 end behavioral;
