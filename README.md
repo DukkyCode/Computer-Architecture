@@ -1,4 +1,4 @@
-# EE126: Computer Engineering with Lab
+Computer Architecture
 
 Lab 1: Basic Processor Components and Testbenches <br />
 Lab 2: Remaining Processor Components including ALU, Memories, and control logic<br />
